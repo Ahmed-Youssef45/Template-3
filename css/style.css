@@ -947,6 +947,244 @@ header {
   }
 }
 /* End Skills */
+/* Start how works */
+.how_works {
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  background-color: var(--section-background);
+  .container{
+    margin-top: var(--main-padding);
+    .content{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      align-items: center;
+      gap: 50px;
+      .image{
+        text-align: center;
+      }
+      .steps{
+        .step{
+          display: flex;
+          align-items: center;
+          background-color: rgb(245, 242, 242);
+          border: 2px solid white;
+          border-radius: 10px;
+          margin-bottom: 30px;
+          padding: 15px;
+          position: relative;
+          &::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--section-background);
+            border-radius: 10px;
+            width: 0;
+            height: 0;
+            transition: var(--main-transition);
+          }
+          .image{
+            margin-right: 30px;
+            width: 250px;
+            position: relative;
+          }
+          .text{
+            position: relative;
+            & h2{
+              font-size: 22px;
+              margin-bottom: 10px;
+            }
+            & p{
+              color: gray;
+              line-height: 1.5;
+              text-wrap: balance;
+            }
+          }
+          &:hover{
+            &::before{
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+      @media (max-width: 679px){
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+    }
+    & img{
+      max-width: 100%;
+    }
+  }
+}
+/* End how works */
+/* Starts Events */
+.events{
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  position: relative;
+  .dots-up{
+    position: absolute;
+    top: 150px;
+    right: 0;
+    background-image: url(/media/dots.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 250px;
+  }
+  .dots-down{
+    position: absolute;
+    bottom: 150px;
+    left: 10px;
+    background-image: url(/media/dots.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 250px;
+  }
+  .container{
+    margin-top: var(--main-padding);
+    text-align: center;
+    .content{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+      align-items: center;
+      .image{
+        text-align: center;
+        /* width: 400px; */
+      }
+      .days{
+        text-align: center;
+        .day{
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          background-color: white;
+          margin: auto;
+          .time{
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: var(--main-transition);
+            & h2{
+              margin: 0;
+              padding: 30px 20px;
+              border-bottom: 1px solid #ddd;
+              color: var(--main-color);
+              transition: var(--main-transition);
+            }
+            & p{
+              font-size: 14px;
+              color: gray;
+            }
+            &:hover{
+              border-color: var(--main-color);
+              & h2{
+                border-color: var(--main-color);
+              }
+            }
+          }
+        }
+        .info{
+          margin-top: 50px;
+          & p{
+            color: gray;
+            line-height: 2;
+          }
+        }
+      }
+    }
+  .subscribe{
+    margin-top: 100px;
+    .email{
+      margin: 0 auto;
+      background-color: var(--section-background);
+      padding: 60px 50px;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      & input[type="email"]{
+        width: 70%;
+        padding: 20px 30px;
+        border-radius: 50px;
+        outline: none;
+        border: none;
+        caret-color: var(--main-color);
+        &:focus::placeholder{
+          transition: 0.3s;
+          color: white;
+        }
+      }
+      & input[type = "submit"]{
+        cursor: pointer;
+        padding: 20px;
+        background-color: var(--main-color);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        transition: var(--main-transition);
+        &:hover{
+          background-color: var(--main-color-alt);
+        }
+      }
+    }
+  }
+    & img{
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 629px){
+    .container{
+      margin-top: 50px;
+      .content{
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        .image{
+          & img {
+            width: 350px;
+          }
+        }
+        .days{
+          margin-top: 50px;
+          .day{
+            .time{
+              & h2{
+                padding: 30px 10px;
+              }
+            }
+          }
+        }
+      }
+      .subscribe{
+        margin-top: 50px;
+        .email{
+          gap: 20px;
+          max-width: 100%;
+          padding: 30px;
+          flex-direction: column;
+          border-radius: 25px;
+          & input[type="email"]{
+            padding: 20px;
+            width: 100%;
+            border-radius: 25px;
+          }
+          & input[type= "submit"]{
+            padding: 15px;
+            font-size: 20px;
+            border-radius: 25px;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 991px){
+    .dots-up, .dots-down{
+      display: none;
+    }
+  }
+}
+/* End Events */
 /* Start Animation */
 @keyframes up-down {
   0% {
