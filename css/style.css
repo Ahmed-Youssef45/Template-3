@@ -23,6 +23,9 @@ ul {
 }
 a {
   text-decoration: none;
+  &:visited{
+    color: inherit;
+  }
 }
 .container {
   padding-left: 15px;
@@ -90,6 +93,28 @@ a {
   }
 }
 /* End Heading */
+/* Start Dots */
+.dots-up{
+  position: absolute;
+  top: 150px;
+  right: 0;
+  background-image: url(/media/dots.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 300px;
+  height: 250px;
+}
+.dots-down{
+  position: absolute;
+  bottom: 150px;
+  left: 10px;
+  background-image: url(/media/dots.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 300px;
+  height: 250px;
+}
+/* End Dots */
 /* Small */
 @media (min-width: 768px) {
   .container {
@@ -1024,26 +1049,6 @@ header {
   padding-top: var(--main-padding);
   padding-bottom: var(--main-padding);
   position: relative;
-  .dots-up{
-    position: absolute;
-    top: 150px;
-    right: 0;
-    background-image: url(/media/dots.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 300px;
-    height: 250px;
-  }
-  .dots-down{
-    position: absolute;
-    bottom: 150px;
-    left: 10px;
-    background-image: url(/media/dots.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 300px;
-    height: 250px;
-  }
   .container{
     margin-top: var(--main-padding);
     text-align: center;
@@ -1185,6 +1190,97 @@ header {
   }
 }
 /* End Events */
+/* Start Pricing */
+.pricing{
+  padding-top: var(--main-padding);
+  padding-bottom: var(--main-padding);
+  background-color: var(--section-background);
+  position: relative;
+  .container{
+    margin-top: var(--main-padding);
+    .content{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+      .card{
+        background-color: white;
+        padding: 20px 0 40px;
+        box-shadow: 0 13px 13px #878686;
+        .header{
+          text-align: center;
+          color: var(--main-color);
+          
+          & h2{
+            font-size: 20px;
+          }
+          & i{
+            font-size: 50px;
+          }
+          & h1{
+            font-size: 40px;
+            margin-bottom: 10px;
+          }
+          & p{
+            color: gray;
+            margin: 0;
+          }
+        }
+        & ul{
+          margin-top: 40px;
+          margin-bottom: 40px;
+          & li{
+            border-top: 1px solid #ddd;
+            padding: 20px;
+            & i{
+              margin-right: 10px;
+              font-weight: 900;
+              color: var(--main-color);
+            }
+          }
+        }
+        .choose{
+          text-align: center;
+          & button{
+            padding: 10px 20px;
+            background-color: white;
+            border-radius: 10px;
+            outline: none;
+            border: 2px solid var(--main-color);
+            color: gray;
+            transition: var(--main-transition);
+          }
+        }
+      }
+      .advanced{
+        position: relative;
+        transform: translateY(-30px);
+        .most_popular{
+          position: absolute;
+          top: 0px;
+          right: 23px;
+          writing-mode: vertical-lr;
+          font-size: 12px;
+          padding: 10px 0 50px 0;
+          background-color: var(--main-color);
+          color: white;
+          &::after{
+            content: '';
+            position: absolute;
+            right: 50%;
+            bottom: 0;
+            transform: translateX(50%);
+            border-style: solid;
+            border-width: 35px;
+            border-color: transparent transparent white transparent;
+            width: 0;
+            height: 0;
+          }
+        }
+      }
+    }
+  }
+}
+/* End Pricing */
 /* Start Animation */
 @keyframes up-down {
   0% {
