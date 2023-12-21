@@ -97,7 +97,7 @@ a {
 .dots-up{
   position: absolute;
   top: 150px;
-  right: 0;
+  right: 20px;
   background-image: url(/media/dots.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -107,12 +107,17 @@ a {
 .dots-down{
   position: absolute;
   bottom: 150px;
-  left: 10px;
+  left: 20px;
   background-image: url(/media/dots.png);
   background-repeat: no-repeat;
   background-size: cover;
   width: 300px;
   height: 250px;
+}
+@media (max-width: 991px){
+  .dots-up, .dots-down{
+    display: none;
+  }
 }
 /* End Dots */
 /* Small */
@@ -1062,7 +1067,10 @@ header {
       }
       .days{
         text-align: center;
+        z-index: 3;
+        background-color: transparent;
         .day{
+          background-color: transparent;
           display: flex;
           justify-content: space-evenly;
           align-items: center;
@@ -1102,6 +1110,7 @@ header {
     }
   .subscribe{
     margin-top: 100px;
+    z-index: 3;
     .email{
       margin: 0 auto;
       background-color: var(--section-background);
@@ -1183,11 +1192,6 @@ header {
       }
     }
   }
-  @media (max-width: 991px){
-    .dots-up, .dots-down{
-      display: none;
-    }
-  }
 }
 /* End Events */
 /* Start Pricing */
@@ -1205,7 +1209,32 @@ header {
       .card{
         background-color: white;
         padding: 20px 0 40px;
-        box-shadow: 0 13px 13px #878686;
+        box-shadow: 0 0px 10px #bbb;
+        transition: var(--main-transition);
+        position: relative;
+        z-index: 3;
+        &::after{
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 0;
+          height: 50%;
+          background-color: #f8f7f7;
+          transition: var(--main-transition);
+          z-index: -1;
+        }
+        &::before{
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 50%;
+          background-color: #f8f7f7;
+          transition: var(--main-transition);
+          z-index: -1;
+        }
         .header{
           text-align: center;
           color: var(--main-color);
@@ -1231,6 +1260,9 @@ header {
           & li{
             border-top: 1px solid #ddd;
             padding: 20px;
+            @media (max-width: 669px){
+              text-align: center;
+            }
             & i{
               margin-right: 10px;
               font-weight: 900;
@@ -1246,14 +1278,47 @@ header {
             border-radius: 10px;
             outline: none;
             border: 2px solid var(--main-color);
-            color: gray;
             transition: var(--main-transition);
+            z-index: 3;
+          position: relative;
+          &::after{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--main-color);
+            transition: var(--main-transition);
+            z-index: -1;
+          }
+          &:hover{
+            cursor: pointer;
+            box-shadow: 0 0px 10px #bbb;
+          }
+          }
+        }
+        &:hover{
+          box-shadow: 0 13px 13px #878686;
+          transform: translateY(-30px);
+          &::after{
+            width: 100%;
+          }
+          &::before{
+            width: 100%;
+          }
+          .choose{
+            & button{
+              color: white;
+              &::after{
+                width: 100%;
+              }
+            }
           }
         }
       }
       .advanced{
         position: relative;
-        transform: translateY(-30px);
         .most_popular{
           position: absolute;
           top: 0px;
